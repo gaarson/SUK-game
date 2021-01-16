@@ -7,9 +7,12 @@ const playerNamesBlock = document.querySelector('#players');
 const addUserBtn = document.getElementById('add-user');
 const startGameBtn = document.getElementById('start-game');
 const endGameBtn = document.getElementById('end-game');
+const playJnglBtn = document.getElementById('play-jingle');
 
 const incrementBtns = document.querySelectorAll('.increment');
 const decrementBtns = document.querySelectorAll('.decrement');
+
+const audio = new Audio('jingle.m4a');
 
 const increment = (e) => {
   e.preventDefault()
@@ -28,6 +31,10 @@ if (incrementBtns && decrementBtns)  {
     btn.addEventListener('click', decrement);
   }
 }
+
+const playJingle = () => {
+  audio.play();
+};
 
 const createPlayer = (e) => {
   e.preventDefault();
@@ -58,6 +65,7 @@ const endGame = (e) => {
 if (startGameBtn) startGameBtn.addEventListener('click', startGame);
 if (addUserBtn) addUserBtn.addEventListener('click', createPlayer);
 if (endGameBtn) endGameBtn.addEventListener('click', endGame);
+if (playJnglBtn) playJnglBtn.addEventListener('click', playJingle);
 
 socket.on('redraw', () => {
   location.reload();
