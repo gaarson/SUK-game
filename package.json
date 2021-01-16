@@ -1,0 +1,25 @@
+{
+  "name": "suk-game",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@koa/router": "^10.0.0",
+    "handlebars": "^4.7.6",
+    "koa": "^2.13.1",
+    "koa-logger": "^3.2.1",
+    "koa-static": "^5.0.0",
+    "koa-views": "^7.0.0",
+    "socket.io": "^3.1.0",
+    "socket.io-client": "^3.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}

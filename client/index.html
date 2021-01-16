@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <title>СУК-Game</title>
+	  <meta charset="utf-8">
+		<link rel="stylesheet" href="style.css">
+  </head>
+	<script src="../node_modules/socket.io-client/dist/socket.io.min.js"></script>
+  <body>
+		{{#unless (equal isGameStarted isAdmin)}} 
+			<section class="game">
+				{{#each players as |player|}}
+					<div class="player">
+						<p>{{player.name}}</p>
+						<span>{{player.score}}</span>
+					</div>
+				{{/each}}
+			</section>
+		{{/unless}}
+
+		{{#if (equal isGameStarted isAdmin)}} 
+			<button id="end-game">Х</button>
+			{{#each players as |player|}}
+				<div class="player">
+					<p>{{player.name}}</p>
+					<span>{{player.score}}</span>
+					<div class="controls">
+						<span class="increment" data-name={{player.name}}>+</span>
+						<span class="decrement" data-name={{player.name}}>-</span>
+					</div>
+				</div>
+			{{/each}}
+		{{/if}}
+
+		{{#if isAdmin}} 
+			<section id="game-setup" class="game-setup">
+				<form class="game-setup__form">
+					<div id="players" class="players"></div>
+					<div class="setup-controls">
+						<button id="add-user">Добавить игрока</button>
+						<input id="start-game" type="submit" value="Начать игру">
+					</div>
+				</form>
+			</section>
+		{{/if}}
+
+    <script src="main.js"></script>
+  </body>
+</html>
